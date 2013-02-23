@@ -5,12 +5,13 @@ require 'date'
 require 'json'
 
 file = File.open("log.txt", "r")
-contents = file.read
+contents = file.read.encode('UTF-8', 'binary', invalid: :replace, undef: :replace, replace: '')
+contents = contents.gsub(/#<ActionDispatch::Http::UploadedFile:[^>]*>>/, '""')
 file.close
 
 out = File.open("diffs.txt", "w")
 
-pop_id = '5102f364dd02dc074c000004'
+pop_id = '50bd056898bd10f7ea000015'
 
 all_params = contents.scan(/Parameters: (.*)\n/)
 all_params.each do | result |
