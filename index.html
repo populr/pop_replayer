@@ -1,0 +1,71 @@
+<head>
+	<title>Pop Contents Replayer</title>
+	<script src="http://code.jquery.com/jquery.min.js" type="text/javascript">
+	</script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/json3/3.2.2/json3.min.js" type="text/javascript">
+	</script>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" href="jsondiffmatch/demo/style.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="jsondiffmatch/src/jsondiffpatch.html.css" type="text/css" media="screen" />
+	<!-- START: required libs -->
+	<script type='text/javascript' src='jsondiffmatch/src/jsondiffpatch.js'></script>
+	<script type='text/javascript' src='jsondiffmatch/src/jsondiffpatch.html.js'></script>
+	<script type='text/javascript' src='jsondiffmatch/lib/diff_match_patch_uncompressed.js'></script>
+	<!-- END: required libs -->
+	<script src="http://code.jquery.com/jquery-1.9.0.min.js"></script>
+	<script src="http://code.jquery.com/jquery-migrate-1.0.0.min.js"></script>
+</head>
+<body>
+	<h1>Pop Contents Replay</h1>
+	<div class="jsontext">
+		<div>
+			<label for="json1">
+				Initial Pop Contents 
+			</label>
+			<input id="json1pretty" type="button" value="pretty format">
+			<textarea id="json1" class="json-input">[]</textarea>
+			<span id="json1errormessage" class="jsonerrormessage"></span>
+		</div>
+		<div>
+			<label for="json2">
+				Current Pop Contents
+			</label>
+			<input id="json2pretty" type="button" value="pretty format">
+			<textarea id="json2" class="json-input">[]</textarea>
+			<span id="json2errormessage" class="jsonerrormessage"></span>
+		</div>
+		<div>
+		
+		</div>
+	</div>
+
+  <script src="processor.js" type="text/javascript"></script>
+	
+	<div style="width:500px; margin:auto; margin-top:20px;">
+	  <textarea id="diffs" style="width:500px; height:200px; margin:auto;">Paste Diffs Here</textarea>
+	</div>
+
+<div style="margin-top:20px; text-align:Center;">
+  <button onclick="processNext()">Next Step</button>
+	<span style="margin-left:30px; ">
+  Replay <input id="steps" style="width:50px;" value="1"/> Steps
+  <button onclick="process()">Go</button>
+</div>
+
+	<div class="results" style="margin-top:30px;">
+		<h2>Last Applied Diff</h2>
+		<div class="header-options">
+			<input id="showunchanged" type="checkbox">
+			<label for="showunchanged">
+				Show unchanged values
+			</label>
+		</div>
+		<p class="visualdiff" id="visualdiff">
+		</p>
+	</div>
+	<footer>
+		<a href="https://github.com/benjamine/JsonDiffPatch">Download JsonDiffPatch</a><br>
+		<p class="credits">JsonDiffPatch was developed by <a href="http://twitter.com/beneidel">BenjamÌn Eidelman</a></p>
+	</footer>
+</body>
+</html>

@@ -1,0 +1,26 @@
+# encoding: UTF-8
+
+
+
+
+require 'optparse' 
+# require 'rdoc/usage'
+require 'ostruct'
+require 'date'
+require 'json'
+
+file = File.open("log.txt", "rb")
+contents = file.read
+file.close
+
+pop_id = '50ff83a998bd10a783000006'
+
+all_params = contents.scan(/Parameters: (.*)\n/)
+all_params.each do | result |
+  diff = eval(result[0])
+  if diff[:revision_updated_at] && diff[:id] == pop_id
+    puts result[0]
+  end
+end
+
+# TO DO - Add your Modules, Classes, etc
